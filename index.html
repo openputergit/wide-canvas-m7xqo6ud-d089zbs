@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Blood Heroes | Blood Donation Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .neo-box {
+            border-radius: 20px;
+            background: #e0e5ec;
+            box-shadow: 20px 20px 60px #bebebe,
+                       -20px -20px 60px #ffffff;
+        }
+        .neo-button {
+            border-radius: 12px;
+            background: #e0e5ec;
+            box-shadow: 5px 5px 10px #bebebe,
+                       -5px -5px 10px #ffffff;
+            transition: all 0.3s ease;
+        }
+        .neo-button:active {
+            box-shadow: inset 5px 5px 10px #bebebe,
+                       inset -5px -5px 10px #ffffff;
+        }
+        body {
+            background: #e0e5ec;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+    <nav class="neo-box p-4 mb-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-red-600">Campus Blood Heroes</h1>
+            <div class="flex gap-4">
+                <button class="neo-button px-4 py-2 text-red-600">Login</button>
+                <button class="neo-button px-4 py-2 text-red-600">Register</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto">
+        <section class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="neo-box p-8">
+                <h2 class="text-3xl font-bold mb-4 text-red-600">Save Lives on Campus</h2>
+                <p class="mb-6 text-gray-700">Join our student blood donation community and make a difference in someone's life today.</p>
+                <button class="neo-button px-6 py-3 text-red-600 font-semibold" onclick="showDonationForm()">
+                    <i class="bi bi-heart-pulse me-2"></i> Donate Now
+                </button>
+            </div>
+            <div class="neo-box p-8">
+                <h3 class="text-2xl font-bold mb-4 text-red-600">Blood Availability</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="neo-box p-4 text-center">
+                        <p class="text-lg font-bold">A+</p>
+                        <p class="text-red-600">12 units</p>
+                    </div>
+                    <div class="neo-box p-4 text-center">
+                        <p class="text-lg font-bold">B+</p>
+                        <p class="text-red-600">8 units</p>
+                    </div>
+                    <div class="neo-box p-4 text-center">
+                        <p class="text-lg font-bold">O+</p>
+                        <p class="text-red-600">15 units</p>
+                    </div>
+                    <div class="neo-box p-4 text-center">
+                        <p class="text-lg font-bold">AB+</p>
+                        <p class="text-red-600">5 units</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="donationForm" class="neo-box p-8 hidden">
+            <h3 class="text-2xl font-bold mb-4 text-red-600">Donation Form</h3>
+            <form onsubmit="handleSubmit(event)" class="grid gap-4">
+                <input type="text" placeholder="Full Name" class="neo-box p-3" required>
+                <input type="email" placeholder="Student Email" class="neo-box p-3" required>
+                <select class="neo-box p-3" required>
+                    <option value="">Select Blood Type</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+                <button type="submit" class="neo-button px-6 py-3 text-red-600 font-semibold">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="container mx-auto mt-12 text-center text-gray-600">
+        <p>Emergency Contact: +1 (555) 123-4567</p>
+    </footer>
+
+    <script>
+        function showDonationForm() {
+            const form = document.getElementById('donationForm');
+            form.classList.toggle('hidden');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for registering as a donor! We will contact you shortly with the next steps.');
+            event.target.reset();
+            document.getElementById('donationForm').classList.add('hidden');
+        }
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
